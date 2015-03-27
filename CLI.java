@@ -16,6 +16,7 @@ public class CLI {
         print(Cedict.entries.size());
         */
 
+        /*
         final int NUM_ENTRIES = Cedict.entries.size();
         for (int i = 0; i < NUM_ENTRIES; i++) {
             String entry = getEntry(i);
@@ -23,5 +24,9 @@ public class CLI {
                 print(entry);
             }
         }
+        */
+        
+        print(findByFuzzy("shoei jiau")[0]);
+        print(findByFuzzy("shoei jiau")[1]);
     }
 }
