@@ -2619,7 +2619,7 @@ public class Conversion {
     public static String py2gr(String py) {
         String result = py2gr.get(py);
         if (result == null) {
-            result = "#" + py;
+            result = "@" + py;
         }
         return result;
     }
@@ -2627,7 +2627,7 @@ public class Conversion {
     public static String gr2py(String gr) {
         String result = gr2py.get(gr);
         if (result == null) {
-            result = "#" + gr;
+            result = "@" + gr;
         }
         return result;
     }

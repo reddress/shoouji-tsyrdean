@@ -1,3 +1,5 @@
+// DO NOT USE, SEE mandarin PACKAGE
+
 import java.util.Properties;
 import java.io.InputStreamReader;
 import java.io.FileInputStream;

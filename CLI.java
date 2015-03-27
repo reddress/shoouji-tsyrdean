@@ -4,29 +4,47 @@ import static mandarin.Cedict.*;
 public class CLI {
 
     // javac -encoding "UTF-8" MyFrame.java
+
+    static final int NUM_ENTRIES = Cedict.entries.size();
     
     public static <T> void print(T val) {
         System.out.println(val);
     }
 
     public static void main(String[] args) {
-        /*
-        print(py2gr("zu2"));
-        print("盤");
-        print(Cedict.entries.size());
-        */
+        printGRMatches("chau ji shy chang");
 
-        /*
-        final int NUM_ENTRIES = Cedict.entries.size();
+        printMatches("freedom");
+
+        printExactMatches("horse");
+
+        printMatches("me");
+        printExactMatches("me");
+    }
+
+    public static void printGRMatches(String gr) {
+        String[] matches = findByFuzzy(gr);
+        int matchesLen = matches.length;
+        for (int i = 0; i < matchesLen; i++) {
+            print(matches[i]);
+        }
+    }
+
+    public static void printMatches(String searchTerm) {
+        if (searchTerm.length() < 3) {
+            System.out.println("Search term too short");
+            return;
+        }
+        
         for (int i = 0; i < NUM_ENTRIES; i++) {
             String entry = getEntry(i);
-            if (entry.contains("/horse/")) {
+            if (entry.contains(searchTerm)) {
                 print(entry);
             }
         }
-        */
-        
-        print(findByFuzzy("shoei jiau")[0]);
-        print(findByFuzzy("shoei jiau")[1]);
+    }
+
+    public static void printExactMatches(String searchTerm) {
+        printMatches("/" + searchTerm + "/");
     }
 }

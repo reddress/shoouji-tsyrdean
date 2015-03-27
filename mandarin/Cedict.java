@@ -30,7 +30,7 @@ public class Cedict {
     }
 
     public static String[] findByFuzzy(String fuzzyInput) {
-        String[] result;
+        String[] result = {"no matches"};
         
         String grToneless = "";
         String[] syllables = fuzzyInput.split(" ");
@@ -45,12 +45,10 @@ public class Cedict {
 
         String tonelessGR = sb.toString();
         tonelessGR = tonelessGR.substring(0, tonelessGR.length()-1);
-        
+
         String entryIndicesStr = fuzzyGR.getProperty(tonelessGR);
 
-        if (entryIndicesStr == null) {
-            result = null;
-        } else {
+        if (entryIndicesStr != null) {
             String[] entryIndices = entryIndicesStr.split(",");
             int numberOfMatches = entryIndices.length;
             result = new String[numberOfMatches];
