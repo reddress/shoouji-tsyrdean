@@ -10,10 +10,18 @@ public class CLI {
     }
 
     public static void main(String[] args) {
+        /*
         print(py2gr("zu2"));
-        print(Conversion.gr2py("liau"));
-
         print("盤");
         print(Cedict.entries.size());
+        */
+
+        final int NUM_ENTRIES = Cedict.entries.size();
+        for (int i = 0; i < NUM_ENTRIES; i++) {
+            String entry = getEntry(i);
+            if (entry.contains("/horse/")) {
+                print(entry);
+            }
+        }
     }
 }

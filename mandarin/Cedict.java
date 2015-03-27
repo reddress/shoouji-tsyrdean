@@ -18,7 +18,7 @@ public class Cedict {
         }
     }
 
-    public static String entry(int index) {
+    public static String getEntry(int index) {
         return entries.getProperty(String.valueOf(index));
     }
 }
