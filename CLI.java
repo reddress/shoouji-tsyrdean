@@ -20,6 +20,7 @@ public class CLI {
 
         printMatches("me");
         printExactMatches("me");
+        print(getMatches("dna"));
     }
 
     public static void printGRMatches(String gr) {
@@ -42,6 +43,24 @@ public class CLI {
                 print(entry);
             }
         }
+    }
+
+    public static String getMatches(String searchTerm) {
+		String entry;
+		StringBuilder result = new StringBuilder();
+		
+		if (searchTerm.length() < 3) {
+			return "Search term must be at least 3 letters long";
+		}
+		
+		for (int i = 0; i < NUM_ENTRIES; i++) {
+			entry = getEntry(i);
+			if (entry.contains(searchTerm)) {
+				result.append(entry);
+				result.append("\n");
+			}
+		}
+		return result.toString();
     }
 
     public static void printExactMatches(String searchTerm) {
